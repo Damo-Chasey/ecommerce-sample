@@ -40,12 +40,19 @@ class App extends React.Component {
     return(
       <div className="App-header">
         <div onClick={() => this.openCartDropDown()} >
-          My Cart (4)
+          My Cart {this.cartItemCount()}
         </div>
         {this.state.cartDropDown ? this.renderCart(): null}
         
       </div>
     )
+  }
+
+  cartItemCount(){
+    if(this.state.cart !== null){
+      return this.state.cart.length
+    }
+    
   }
 
   renderCart(){
@@ -101,7 +108,7 @@ class App extends React.Component {
     )
   }
 
-  addToCart(item){                    //Todo: fix selection assignment
+  addToCart(item){                    //Todo: fix selection assignment, seems like ill likely need to declare the appended attribute somewhere else....
     let list = this.state.cart;
     let newItem = this.state.product
     newItem.selection = item
