@@ -109,6 +109,9 @@ class App extends React.Component {
   }
 
   addToCart(item){                    //Todo: fix selection assignment, seems like ill likely need to declare the appended attribute somewhere else....
+    if(this.checkSelected() !== true){
+      return
+    }
     let list = this.state.cart;
     let newItem = this.state.product
     newItem.selection = item
