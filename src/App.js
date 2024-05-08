@@ -113,13 +113,11 @@ class App extends React.Component {
     let newItem = this.state.product
     newItem.selection = item
     list.push(newItem);
-    console.log(this.state.cart)
     this.setState({cart: list});
   }
 
   openCartDropDown(){
     let newValue = !this.state.cartDropDown;
-    console.log(newValue)
     this.setState({cartDropDown: newValue});
   }
 
